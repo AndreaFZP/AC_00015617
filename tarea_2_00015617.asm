@@ -60,7 +60,7 @@ mov	[si+220h], bx
 inc	si
 
 fibonacci:
-    mov	dx, bx
+    mov dx, bx
 	add	bx, ax
 	mov	[si+220h], bx
 	mov	ax, dx
