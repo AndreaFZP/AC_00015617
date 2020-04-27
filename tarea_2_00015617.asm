@@ -27,3 +27,13 @@ primero:
 	mov [si+210h],ax
 	inc	si
 	jb primero
+
+segundo: 
+    mul cx,
+    mov [si+210h],ax
+    inc si
+    jb segundo
+
+
+
+int 20h
