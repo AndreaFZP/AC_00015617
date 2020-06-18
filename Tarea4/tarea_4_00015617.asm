@@ -1,33 +1,25 @@
-org 100h
-
-;ejercicio 1
-
-mov ax, 1d
-mov bx, 5d
-add ax,bx
-mov bx, 6d
-add ax, bx
-mov bx, 1d
-add ax,bx
-mov bx, 7d
-add ax,bx
-
-mov bx, 5d
-
-div bx
+org 	100h
 
 section .text
-mov di, 0d
-mov cx, len
-lupi:  mov bl, [comnt+di] 
-       mov [di+200h],bl
-       inc	di
-       loop	lupi
 
+	xor 	si, si
+	mov	bl, 0d
+	mov	bh, 0d
 
+input:	mov 	dx, nl
+	call 	texto
+	cmp	si, 5d
+	je	promedio
+	mov 	dx, inputmsg
+	call 	texto
 
-int 20h
+lupi:	call 	kb
+	cmp 	al, "$"
+	je	input
+	mov	[300h+si], al
+	inc 	si
+	jmp	lupi	
 
-section .data
-comnt db "Me recupero"
-len equ $-comnt
+texto:	mov	ah, 09h
+	int 	21h
+	ret
