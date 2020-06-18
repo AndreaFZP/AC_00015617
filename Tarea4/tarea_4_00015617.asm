@@ -23,3 +23,16 @@ lupi:	call 	kb
 texto:	mov	ah, 09h
 	int 	21h
 	ret
+
+promedio:	mov 	dx, nl ; se calcula el promedio de todos los últimos digitos
+	call 	texto ; acorde al resultado se desplegará el mensaje correspondiente
+	mov	ax, 0h
+	mov	al, bl
+	mov	cl, 5d
+	div	cl
+	call	comp
+
+most:	mov	byte [300h+si], "$"
+	mov 	dx, 300h
+	call 	texto
+	ret
