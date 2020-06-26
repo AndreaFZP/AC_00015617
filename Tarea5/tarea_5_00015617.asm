@@ -47,6 +47,11 @@ section .text
 	mov di, 80d
 	call linea8
 
+	;linea9
+	mov si, 117d
+	mov di, 74d
+	call linea9
+
     call 	kb		
 
 	int 	20h
@@ -145,6 +150,15 @@ lupi8: mov cx, 0d
 	   jne lupi8
 	   ret
 
+linea9:
+lupi9: mov cx, 0d
+	   add cx, si
+	   mov dx, di
+	   call linea
+	   inc si
+	   cmp si, 163d
+	   jne lupi9
+	   ret
 
 kb: 	mov	ah, 00h
 	int 	16h
