@@ -7,10 +7,21 @@ section .text
 	xor 	si, si
 	xor 	di, di
 	
-	mov 	si, 25d  
-	mov 	di, 110d 
+	;linea 1
+	mov 	si, 50d  ;x
+	mov 	di, 120d ;y
 	call 	linea1
 
+
+	;linea3
+	mov si, 120d
+	mov di, 30d
+	call linea3
+
+	;linea5
+	mov si, 190d
+	mov di, 120d
+	call linea5
     
     call 	kb		
 
@@ -32,9 +43,30 @@ lupi1:	mov 	cx, 0d
 	mov	dx, di 
 	call 	linea
 	inc 	si
-	cmp 	si, 50d
+	cmp 	si, 75d
 	jne 	lupi1
 	ret
+
+
+linea3:
+lupi3: mov cx, 0d
+	   add cx, si
+	   mov dx, di
+	   call linea
+	   inc si
+	   cmp si, 145d
+	   jne lupi3
+	   ret
+
+linea5:
+lupi5: mov cx, 0d
+	   add cx, si
+	   mov dx, di
+	   call linea
+	   inc si
+	   cmp si, 215d
+	   jne lupi5
+	   ret
 
 
 
